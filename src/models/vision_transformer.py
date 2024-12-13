@@ -5,17 +5,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 from einops import rearrange
 
-SUPPORTED_MODELS = [
-    "stmae_nano_enc",
-    "stmae_nano_dec",
-    "stmae_tiny_enc",
-    "stmae_tiny_dec",
-    "stmae_base_enc",
-    "stmae_base_dec",
-    "stmae_large_enc",
-    "stmae_large_dec"
-]
-
 class PatchEmbed(nn.Module):
     def __init__(self, in_channels, patch_size, emb_size: int = 768):
         self.patch_size = patch_size
@@ -216,30 +205,6 @@ class VisionTransformerDecoder(nn.Module):
             x = ffn(self.layer_norm(x))
             x = x + residual
         return x, attn_weights_list
-
-def stmae_nano_enc(in_resolution, in_channels, patch_size, emb_size=120, mlp_ratio=4, num_layers=6, num_heads=12) -> VisionTransformerEncoder:
-    return VisionTransformerEncoder(in_resolution, in_channels, patch_size, emb_size, num_layers, num_heads, mlp_ratio)
-
-def stmae_nano_dec(num_patches, in_channels, emb_size=128, mlp_ratio=4, num_layers=4, num_heads=16) -> VisionTransformerDecoder:
-    return VisionTransformerDecoder(num_patches, in_channels, emb_size, num_layers, num_heads, mlp_ratio)
-
-def stmae_tiny_enc(in_resolution, in_channels, patch_size, emb_size=240, mlp_ratio=4, num_layers=12, num_heads=12) -> VisionTransformerEncoder:
-    return VisionTransformerEncoder(in_resolution, in_channels, patch_size, emb_size, num_layers, num_heads, mlp_ratio)
-
-def stmae_tiny_dec(num_patches, in_channels, emb_size=256, mlp_ratio=4, num_layers=8, num_heads=16) -> VisionTransformerDecoder:
-    return VisionTransformerDecoder(num_patches, in_channels, emb_size, num_layers, num_heads, mlp_ratio)
-
-def stmae_base_enc(in_resolution, in_channels, patch_size, emb_size=768, mlp_ratio=4, num_layers=12, num_heads=12) -> VisionTransformerEncoder:
-    return VisionTransformerEncoder(in_resolution, in_channels, patch_size, emb_size, num_layers, num_heads, mlp_ratio)
-
-def stmae_base_dec(num_patches, in_channels, emb_size=512, mlp_ratio=4, num_layers=8, num_heads=16) -> VisionTransformerDecoder:
-    return VisionTransformerDecoder(num_patches, in_channels, emb_size, num_layers, num_heads, mlp_ratio)
-
-def stmae_large_enc(in_resolution, in_channels, patch_size, emb_size=1024, mlp_ratio=4, num_layers=24, num_heads=16) -> VisionTransformerEncoder:
-    return VisionTransformerEncoder(in_resolution, in_channels, patch_size, emb_size, num_layers, num_heads, mlp_ratio)
-
-def stmae_large_dec(num_patches, in_channels, emb_size=512, mlp_ratio=4, num_layers=8, num_heads=16) -> VisionTransformerDecoder:
-    return VisionTransformerDecoder(num_patches, in_channels, emb_size, num_layers, num_heads, mlp_ratio)
 
 if __name__ == '__main__':
     pass

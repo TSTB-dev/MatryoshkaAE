@@ -1,14 +1,112 @@
 python src/eval.py \
     --data_root data/mvtec_ad \
-    --class_name bottle \
-    --ae_model conv_ae_sp1 \
+    --class_name metal_nut \
+    --ae_model conv_ae \
     --ae_hidden_dim 384 \
     --bottleneck_dim 64 \
     --backbone_model pdn_small \
-    --ae_resume_path ./results/bottle_conv_ae_sp2_dim64_pdn_small/weights.pth \
+    --ae_resume_path ./results/metal_nut_conv_ae_5_dim64_pdn_small/weights.pth \
     --backbone_resume_path ./weights/teacher_small.pth \
     --feature_dim 384 \
-    --feature_res 2 \
+    --feature_res 1 \
+    --patch_size 1 \
+    --num_enc_layers 3 \
+    --num_dec_layers 3 \
+    --num_heads 4 \
+    --mlp_ratio 4 \
+    --in_res 56 \
+    --img_size 256 \
+    --split test \
+    --batch_size 8 \
+    --seed 42 \
+    --device cuda  
+
+python src/eval.py \
+    --data_root data/mvtec_ad \
+    --class_name tile \
+    --ae_model conv_ae \
+    --ae_hidden_dim 384 \
+    --bottleneck_dim 64 \
+    --backbone_model pdn_small \
+    --ae_resume_path ./results/tile_conv_ae_5_dim64_pdn_small/weights.pth \
+    --backbone_resume_path ./weights/teacher_small.pth \
+    --feature_dim 384 \
+    --feature_res 1 \
+    --patch_size 1 \
+    --num_enc_layers 3 \
+    --num_dec_layers 3 \
+    --num_heads 4 \
+    --mlp_ratio 4 \
+    --in_res 56 \
+    --img_size 256 \
+    --split test \
+    --batch_size 8 \
+    --seed 42 \
+    --device cuda  
+
+python src/eval.py \
+    --data_root data/mvtec_ad \
+    --class_name zipper \
+    --ae_model conv_ae \
+    --ae_hidden_dim 384 \
+    --bottleneck_dim 64 \
+    --backbone_model pdn_small \
+    --ae_resume_path ./results/zipper_conv_ae_5_dim64_pdn_small/weights.pth \
+    --backbone_resume_path ./weights/teacher_small.pth \
+    --feature_dim 384 \
+    --feature_res 1 \
+    --patch_size 1 \
+    --num_enc_layers 3 \
+    --num_dec_layers 3 \
+    --num_heads 4 \
+    --mlp_ratio 4 \
+    --in_res 56 \
+    --img_size 256 \
+    --split test \
+    --batch_size 8 \
+    --seed 42 \
+    --device cuda  
+
+python src/eval.py \
+    --data_root data/mvtec_ad \
+    --class_name transistor \
+    --ae_model conv_ae \
+    --ae_hidden_dim 384 \
+    --bottleneck_dim 64 \
+    --backbone_model pdn_small \
+    --ae_resume_path ./results/transistor_conv_ae_5_dim64_pdn_small/weights.pth \
+    --backbone_resume_path ./weights/teacher_small.pth \
+    --feature_dim 384 \
+    --feature_res 1 \
+    --patch_size 1 \
+    --num_enc_layers 3 \
+    --num_dec_layers 3 \
+    --num_heads 4 \
+    --mlp_ratio 4 \
+    --in_res 56 \
+    --img_size 256 \
+    --split test \
+    --batch_size 8 \
+    --seed 42 \
+    --device cuda  
+
+python src/eval.py \
+    --data_root data/mvtec_ad \
+    --class_name toothbrush \
+    --ae_model conv_ae \
+    --ae_hidden_dim 384 \
+    --bottleneck_dim 64 \
+    --backbone_model pdn_small \
+    --ae_resume_path ./results/toothbrush_conv_ae_5_dim64_pdn_small/weights.pth \
+    --backbone_resume_path ./weights/teacher_small.pth \
+    --feature_dim 384 \
+    --feature_res 1 \
+    --patch_size 1 \
+    --num_enc_layers 3 \
+    --num_dec_layers 3 \
+    --num_heads 4 \
+    --mlp_ratio 4 \
+    --in_res 56 \
     --img_size 256 \
     --split test \
     --batch_size 8 \
@@ -17,49 +115,21 @@ python src/eval.py \
 
 python src/eval.py \
     --data_root data/mvtec_ad \
-    --class_name bottle \
-    --ae_model conv_ae_sp1 \
+    --class_name cable \
+    --ae_model conv_ae \
     --ae_hidden_dim 384 \
     --bottleneck_dim 64 \
     --backbone_model pdn_small \
-    --ae_resume_path ./results/bottle_conv_ae_sp4_dim64_pdn_small/weights.pth \
+    --ae_resume_path ./results/cable_conv_ae_5_dim64_pdn_small/weights.pth \
     --backbone_resume_path ./weights/teacher_small.pth \
     --feature_dim 384 \
-    --feature_res 4 \
-    --img_size 256 \
-    --split test \
-    --batch_size 8 \
-    --seed 42 \
-    --device cuda 
-
-python src/eval.py \
-    --data_root data/mvtec_ad \
-    --class_name bottle \
-    --ae_model conv_ae_sp1 \
-    --ae_hidden_dim 384 \
-    --bottleneck_dim 64 \
-    --backbone_model pdn_small \
-    --ae_resume_path ./results/bottle_conv_ae_sp8_dim64_pdn_small/weights.pth \
-    --backbone_resume_path ./weights/teacher_small.pth \
-    --feature_dim 384 \
-    --feature_res 8 \
-    --img_size 256 \
-    --split test \
-    --batch_size 8 \
-    --seed 42 \
-    --device cuda 
-
-python src/eval.py \
-    --data_root data/mvtec_ad \
-    --class_name bottle \
-    --ae_model conv_ae_sp1 \
-    --ae_hidden_dim 384 \
-    --bottleneck_dim 64 \
-    --backbone_model pdn_small \
-    --ae_resume_path ./results/bottle_conv_ae_sp16_dim64_pdn_small/weights.pth \
-    --backbone_resume_path ./weights/teacher_small.pth \
-    --feature_dim 384 \
-    --feature_res 16 \
+    --feature_res 1 \
+    --patch_size 1 \
+    --num_enc_layers 3 \
+    --num_dec_layers 3 \
+    --num_heads 4 \
+    --mlp_ratio 4 \
+    --in_res 56 \
     --img_size 256 \
     --split test \
     --batch_size 8 \
